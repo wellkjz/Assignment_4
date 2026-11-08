@@ -1,0 +1,38 @@
+Verification date: 2026-11-08
+Runtime: Temurin OpenJDK 17.0.18+8; Python 3.12.10; Windows 11
+java heap: -Xmx384m
+
+python tools/run.py --setup
+PASS setup: ping
+
+python tools/run.py --check
+PASS all 44 public cases (fixtures and launcher from official template)
+PASS state reset: two complete batches in one process
+
+python tests/student/check.py
+PASS 24 fixed + 960 random cases; 1968 mixed requests in one process
+PASS lcs-1000: 0.092028 seconds including JVM + JSON + algorithm
+PASS merge-200-long: 0.115501 seconds including JVM + JSON + algorithm
+PASS tree-chain-100000: 0.270281 seconds including JVM + JSON + algorithm
+PASS tree-star-100000: 0.273927 seconds including JVM + JSON + algorithm
+PASS naive-dense-max: 0.114144 seconds including JVM + JSON + algorithm
+PASS naive-near-miss: 0.127235 seconds including JVM + JSON + algorithm
+PASS kmp-dense-max: 0.168324 seconds including JVM + JSON + algorithm
+PASS kmp-near-miss: 0.124199 seconds including JVM + JSON + algorithm
+PASS rk-dense-max: 0.141829 seconds including JVM + JSON + algorithm
+PASS rk-near-miss: 0.076982 seconds including JVM + JSON + algorithm
+PASS kmp-empty-200000: 0.153455 seconds including JVM + JSON + algorithm
+PASS rk-pattern-10000: 0.081210 seconds including JVM + JSON + algorithm
+PASS suffix-50000: 0.194827 seconds including JVM + JSON + algorithm
+PASS aho-deep-100000: 0.167460 seconds including JVM + JSON + algorithm
+PASS aho-10000-duplicates: 0.156193 seconds including JVM + JSON + algorithm
+PASS aho-100-texts: 0.458659 seconds including JVM + JSON + algorithm
+PASS aho-dense-suffixes: 0.176433 seconds including JVM + JSON + algorithm
+
+python tests/student/benchmark.py
+PASS correctness before timing for all 18 method/case/size combinations
+200 warm-up calls per combination; 3 measured batches of 100 calls
+Raw timings: benchmark_results.json; table and interpretation: ../../ANALYSIS.md
+
+Hidden grading tests and GitHub Actions were not run.
+No GitHub repository or Moodle submission was created.

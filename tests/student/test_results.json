@@ -1,0 +1,762 @@
+{
+  "seed": 20261108,
+  "mixed_requests": 1968,
+  "fixed": [
+    {
+      "name": "lcs-empty-both",
+      "input": {
+        "task": "lcs",
+        "a": "",
+        "b": ""
+      },
+      "expected": {
+        "length": 0,
+        "sequence": ""
+      },
+      "actual": {
+        "sequence": "",
+        "length": 0
+      },
+      "checks": "empty base row/column",
+      "passed": true
+    },
+    {
+      "name": "lcs-tie",
+      "input": {
+        "task": "lcs",
+        "a": "ABBA",
+        "b": "BAAB"
+      },
+      "expected": {
+        "length": 2,
+        "sequence": "AB"
+      },
+      "actual": {
+        "sequence": "AB",
+        "length": 2
+      },
+      "checks": "accept any optimal subsequence",
+      "passed": true
+    },
+    {
+      "name": "lcs-punctuation",
+      "input": {
+        "task": "lcs",
+        "a": "A x! B?",
+        "b": "A!B?"
+      },
+      "expected": {
+        "length": 4,
+        "sequence": "A!B?"
+      },
+      "actual": {
+        "sequence": "A!B?",
+        "length": 4
+      },
+      "checks": "subsequence, spaces and punctuation",
+      "passed": true
+    },
+    {
+      "name": "merge-empty",
+      "input": {
+        "task": "merge",
+        "sizes": []
+      },
+      "expected": {
+        "cost": 0
+      },
+      "actual": {
+        "cost": 0,
+        "plan": []
+      },
+      "checks": "empty plan",
+      "passed": true
+    },
+    {
+      "name": "merge-single",
+      "input": {
+        "task": "merge",
+        "sizes": [
+          1000000000
+        ]
+      },
+      "expected": {
+        "cost": 0
+      },
+      "actual": {
+        "cost": 0,
+        "plan": []
+      },
+      "checks": "one block costs zero",
+      "passed": true
+    },
+    {
+      "name": "merge-adjacency",
+      "input": {
+        "task": "merge",
+        "sizes": [
+          1,
+          100,
+          1
+        ]
+      },
+      "expected": {
+        "cost": 203
+      },
+      "actual": {
+        "cost": 203,
+        "plan": [
+          [
+            1,
+            1,
+            2
+          ],
+          [
+            0,
+            0,
+            2
+          ]
+        ]
+      },
+      "checks": "arbitrary smallest blocks cannot be merged",
+      "passed": true
+    },
+    {
+      "name": "merge-zero-tie",
+      "input": {
+        "task": "merge",
+        "sizes": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "expected": {
+        "cost": 0
+      },
+      "actual": {
+        "cost": 0,
+        "plan": [
+          [
+            2,
+            2,
+            3
+          ],
+          [
+            1,
+            1,
+            3
+          ],
+          [
+            0,
+            0,
+            3
+          ]
+        ]
+      },
+      "checks": "valid chronological plan with tied costs",
+      "passed": true
+    },
+    {
+      "name": "merge-long",
+      "input": {
+        "task": "merge",
+        "sizes": [
+          1000000000,
+          1000000000,
+          1000000000,
+          1000000000
+        ]
+      },
+      "expected": {
+        "cost": 8000000000
+      },
+      "actual": {
+        "cost": 8000000000,
+        "plan": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            2,
+            2,
+            3
+          ],
+          [
+            0,
+            1,
+            3
+          ]
+        ]
+      },
+      "checks": "64-bit total cost",
+      "passed": true
+    },
+    {
+      "name": "tree-empty",
+      "input": {
+        "task": "tree",
+        "n": 0,
+        "weights": [],
+        "edges": []
+      },
+      "expected": {
+        "weight": 0,
+        "selected": []
+      },
+      "actual": {
+        "selected": [],
+        "weight": 0
+      },
+      "checks": "empty tree",
+      "passed": true
+    },
+    {
+      "name": "tree-negative",
+      "input": {
+        "task": "tree",
+        "n": 3,
+        "weights": [
+          -2,
+          -8,
+          -1
+        ],
+        "edges": [
+          [
+            2,
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ]
+      },
+      "expected": {
+        "weight": 0,
+        "selected": []
+      },
+      "actual": {
+        "selected": [],
+        "weight": 0
+      },
+      "checks": "empty set is allowed",
+      "passed": true
+    },
+    {
+      "name": "tree-long",
+      "input": {
+        "task": "tree",
+        "n": 4,
+        "weights": [
+          1,
+          1000000000,
+          1000000000,
+          1000000000
+        ],
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ]
+      },
+      "expected": {
+        "weight": 3000000000,
+        "selected": [
+          1,
+          2,
+          3
+        ]
+      },
+      "actual": {
+        "selected": [
+          1,
+          2,
+          3
+        ],
+        "weight": 3000000000
+      },
+      "checks": "64-bit weight and parent restriction",
+      "passed": true
+    },
+    {
+      "name": "tree-tie",
+      "input": {
+        "task": "tree",
+        "n": 2,
+        "weights": [
+          7,
+          7
+        ],
+        "edges": [
+          [
+            1,
+            0
+          ]
+        ]
+      },
+      "expected": {
+        "weight": 7,
+        "selected": [
+          0
+        ]
+      },
+      "actual": {
+        "selected": [
+          1
+        ],
+        "weight": 7
+      },
+      "checks": "alternative optimal vertex set",
+      "passed": true
+    },
+    {
+      "name": "naive-empty",
+      "input": {
+        "task": "naive",
+        "text": "abc!",
+        "pattern": ""
+      },
+      "expected": {
+        "positions": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "actual": {
+        "positions": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      },
+      "checks": "include final boundary",
+      "passed": true
+    },
+    {
+      "name": "naive-overlap",
+      "input": {
+        "task": "naive",
+        "text": "ababab",
+        "pattern": "abab"
+      },
+      "expected": {
+        "positions": [
+          0,
+          2
+        ]
+      },
+      "actual": {
+        "positions": [
+          0,
+          2
+        ]
+      },
+      "checks": "overlapping matches",
+      "passed": true
+    },
+    {
+      "name": "kmp-fallback",
+      "input": {
+        "task": "kmp",
+        "text": "abababacaba",
+        "pattern": "ababaca"
+      },
+      "expected": {
+        "positions": [
+          2
+        ]
+      },
+      "actual": {
+        "positions": [
+          2
+        ]
+      },
+      "checks": "repeated prefix fallback",
+      "passed": true
+    },
+    {
+      "name": "kmp-both-empty",
+      "input": {
+        "task": "kmp",
+        "text": "",
+        "pattern": ""
+      },
+      "expected": {
+        "positions": [
+          0
+        ]
+      },
+      "actual": {
+        "positions": [
+          0
+        ]
+      },
+      "checks": "do not index empty pattern",
+      "passed": true
+    },
+    {
+      "name": "rk-collision",
+      "input": {
+        "task": "rk",
+        "text": "dj ab dj",
+        "pattern": "ab"
+      },
+      "expected": {
+        "positions": [
+          3
+        ]
+      },
+      "actual": {
+        "positions": [
+          3
+        ]
+      },
+      "checks": "equal hash does not imply equality",
+      "passed": true
+    },
+    {
+      "name": "rk-long-pattern",
+      "input": {
+        "task": "rk",
+        "text": "a",
+        "pattern": "aaaa"
+      },
+      "expected": {
+        "positions": []
+      },
+      "actual": {
+        "positions": []
+      },
+      "checks": "no first window exists",
+      "passed": true
+    },
+    {
+      "name": "suffix-empty",
+      "input": {
+        "task": "suffix",
+        "text": ""
+      },
+      "expected": {
+        "sa": [],
+        "lcp": [],
+        "repeated": ""
+      },
+      "actual": {
+        "repeated": "",
+        "lcp": [],
+        "sa": []
+      },
+      "checks": "empty array has no lcp[0]",
+      "passed": true
+    },
+    {
+      "name": "suffix-ascii",
+      "input": {
+        "task": "suffix",
+        "text": "$ a$ a"
+      },
+      "expected": {
+        "sa": [
+          4,
+          1,
+          3,
+          0,
+          5,
+          2
+        ],
+        "lcp": [
+          0,
+          2,
+          0,
+          3,
+          0,
+          1
+        ],
+        "repeated": "$ a"
+      },
+      "actual": {
+        "repeated": "$ a",
+        "lcp": [
+          0,
+          2,
+          0,
+          3,
+          0,
+          1
+        ],
+        "sa": [
+          4,
+          1,
+          3,
+          0,
+          5,
+          2
+        ]
+      },
+      "checks": "space and dollar are ordinary characters",
+      "passed": true
+    },
+    {
+      "name": "suffix-overlap",
+      "input": {
+        "task": "suffix",
+        "text": "abababa"
+      },
+      "expected": {
+        "sa": [
+          6,
+          4,
+          2,
+          0,
+          5,
+          3,
+          1
+        ],
+        "lcp": [
+          0,
+          1,
+          3,
+          5,
+          0,
+          2,
+          4
+        ],
+        "repeated": "ababa"
+      },
+      "actual": {
+        "repeated": "ababa",
+        "lcp": [
+          0,
+          1,
+          3,
+          5,
+          0,
+          2,
+          4
+        ],
+        "sa": [
+          6,
+          4,
+          2,
+          0,
+          5,
+          3,
+          1
+        ]
+      },
+      "checks": "overlapping longest repeat",
+      "passed": true
+    },
+    {
+      "name": "aho-suffix-duplicate",
+      "input": {
+        "task": "aho",
+        "patterns": [
+          "a",
+          "ba",
+          "aba",
+          "a"
+        ],
+        "texts": [
+          "ababa",
+          "",
+          "ababa"
+        ]
+      },
+      "expected": {
+        "counts": [
+          [
+            3,
+            2,
+            2,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            2,
+            2,
+            3
+          ]
+        ]
+      },
+      "actual": {
+        "counts": [
+          [
+            3,
+            2,
+            2,
+            3
+          ],
+          [
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            2,
+            2,
+            3
+          ]
+        ]
+      },
+      "checks": "failure counts, duplicates, per-text reset",
+      "passed": true
+    },
+    {
+      "name": "aho-empty-dictionary",
+      "input": {
+        "task": "aho",
+        "patterns": [],
+        "texts": [
+          "",
+          "x"
+        ]
+      },
+      "expected": {
+        "counts": [
+          [],
+          []
+        ]
+      },
+      "actual": {
+        "counts": [
+          [],
+          []
+        ]
+      },
+      "checks": "one empty row per text",
+      "passed": true
+    },
+    {
+      "name": "aho-no-texts",
+      "input": {
+        "task": "aho",
+        "patterns": [
+          "a"
+        ],
+        "texts": []
+      },
+      "expected": {
+        "counts": []
+      },
+      "actual": {
+        "counts": []
+      },
+      "checks": "zero result rows",
+      "passed": true
+    }
+  ],
+  "scale": [
+    {
+      "name": "lcs-1000",
+      "passed": true,
+      "seconds": 0.114218
+    },
+    {
+      "name": "merge-200-long",
+      "passed": true,
+      "seconds": 0.077054
+    },
+    {
+      "name": "tree-chain-100000",
+      "passed": true,
+      "seconds": 0.239096
+    },
+    {
+      "name": "tree-star-100000",
+      "passed": true,
+      "seconds": 0.278767
+    },
+    {
+      "name": "naive-dense-max",
+      "passed": true,
+      "seconds": 0.079024
+    },
+    {
+      "name": "naive-near-miss",
+      "passed": true,
+      "seconds": 0.109893
+    },
+    {
+      "name": "kmp-dense-max",
+      "passed": true,
+      "seconds": 0.173139
+    },
+    {
+      "name": "kmp-near-miss",
+      "passed": true,
+      "seconds": 0.110082
+    },
+    {
+      "name": "rk-dense-max",
+      "passed": true,
+      "seconds": 0.138973
+    },
+    {
+      "name": "rk-near-miss",
+      "passed": true,
+      "seconds": 0.090232
+    },
+    {
+      "name": "kmp-empty-200000",
+      "passed": true,
+      "seconds": 0.15767
+    },
+    {
+      "name": "rk-pattern-10000",
+      "passed": true,
+      "seconds": 0.117517
+    },
+    {
+      "name": "suffix-50000",
+      "passed": true,
+      "seconds": 0.18185
+    },
+    {
+      "name": "aho-deep-100000",
+      "passed": true,
+      "seconds": 0.171553
+    },
+    {
+      "name": "aho-10000-duplicates",
+      "passed": true,
+      "seconds": 0.166439
+    },
+    {
+      "name": "aho-100-texts",
+      "passed": true,
+      "seconds": 0.427402
+    },
+    {
+      "name": "aho-dense-suffixes",
+      "passed": true,
+      "seconds": 0.167465
+    }
+  ]
+}

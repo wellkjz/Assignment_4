@@ -1,0 +1,8 @@
+{"task":"lcs","a":"tea_time","b":"team"}
+{"task":"merge","sizes":[2,3,4]}
+{"task":"tree","n":3,"weights":[4,9,6],"edges":[[0,1],[1,2]]}
+{"task":"naive","text":"aaaaa","pattern":"aaa"}
+{"task":"kmp","text":"abababa","pattern":"aba"}
+{"task":"rk","text":"abdj","pattern":"ab"}
+{"task":"suffix","text":"banana"}
+{"task":"aho","patterns":["he","she","he"],"texts":["sheshe","sheshe",""]}

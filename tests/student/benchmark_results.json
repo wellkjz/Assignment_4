@@ -1,0 +1,246 @@
+{
+  "calls_per_run": 100,
+  "warmup_calls": 200,
+  "rows": [
+    {
+      "correct": true,
+      "median_ns_per_call": 923.0,
+      "batch_ns": [
+        264200,
+        92300,
+        81600
+      ],
+      "case": "random",
+      "algorithm": "naive",
+      "n": 500,
+      "m": 50
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 1116.0,
+      "batch_ns": [
+        111600,
+        150700,
+        107000
+      ],
+      "case": "random",
+      "algorithm": "kmp",
+      "n": 500,
+      "m": 50
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 4225.0,
+      "batch_ns": [
+        473400,
+        422500,
+        408600
+      ],
+      "case": "random",
+      "algorithm": "rk",
+      "n": 500,
+      "m": 50
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 2365.0,
+      "batch_ns": [
+        266600,
+        228200,
+        236500
+      ],
+      "case": "random",
+      "algorithm": "naive",
+      "n": 1500,
+      "m": 150
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 3405.0,
+      "batch_ns": [
+        309900,
+        423900,
+        340500
+      ],
+      "case": "random",
+      "algorithm": "kmp",
+      "n": 1500,
+      "m": 150
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 12532.0,
+      "batch_ns": [
+        1253200,
+        1434400,
+        1210000
+      ],
+      "case": "random",
+      "algorithm": "rk",
+      "n": 1500,
+      "m": 150
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 4990.0,
+      "batch_ns": [
+        746900,
+        499000,
+        449300
+      ],
+      "case": "random",
+      "algorithm": "naive",
+      "n": 3000,
+      "m": 300
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 6505.0,
+      "batch_ns": [
+        610800,
+        765700,
+        650500
+      ],
+      "case": "random",
+      "algorithm": "kmp",
+      "n": 3000,
+      "m": 300
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 24899.0,
+      "batch_ns": [
+        2631700,
+        2376900,
+        2489900
+      ],
+      "case": "random",
+      "algorithm": "rk",
+      "n": 3000,
+      "m": 300
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 26488.0,
+      "batch_ns": [
+        2413000,
+        2648800,
+        3023800
+      ],
+      "case": "repetitive",
+      "algorithm": "naive",
+      "n": 500,
+      "m": 50
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 2460.0,
+      "batch_ns": [
+        243300,
+        246000,
+        296500
+      ],
+      "case": "repetitive",
+      "algorithm": "kmp",
+      "n": 500,
+      "m": 50
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 40725.0,
+      "batch_ns": [
+        4072500,
+        4005000,
+        4123500
+      ],
+      "case": "repetitive",
+      "algorithm": "rk",
+      "n": 500,
+      "m": 50
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 195575.0,
+      "batch_ns": [
+        19968700,
+        19513200,
+        19557500
+      ],
+      "case": "repetitive",
+      "algorithm": "naive",
+      "n": 1500,
+      "m": 150
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 9739.0,
+      "batch_ns": [
+        750600,
+        973900,
+        1142100
+      ],
+      "case": "repetitive",
+      "algorithm": "kmp",
+      "n": 1500,
+      "m": 150
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 358354.0,
+      "batch_ns": [
+        35164100,
+        36661800,
+        35835400
+      ],
+      "case": "repetitive",
+      "algorithm": "rk",
+      "n": 1500,
+      "m": 150
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 812055.0,
+      "batch_ns": [
+        75765000,
+        84663200,
+        81205500
+      ],
+      "case": "repetitive",
+      "algorithm": "naive",
+      "n": 3000,
+      "m": 300
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 25406.0,
+      "batch_ns": [
+        2529300,
+        2887700,
+        2540600
+      ],
+      "case": "repetitive",
+      "algorithm": "kmp",
+      "n": 3000,
+      "m": 300
+    },
+    {
+      "correct": true,
+      "median_ns_per_call": 1436484.0,
+      "batch_ns": [
+        139020400,
+        148144200,
+        143648400
+      ],
+      "case": "repetitive",
+      "algorithm": "rk",
+      "n": 3000,
+      "m": 300
+    }
+  ],
+  "vm": "OpenJDK 64-Bit Server VM",
+  "java": "17.0.18+8",
+  "seed": 20261108,
+  "os": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.10",
+  "processor": "Intel64 Family 6 Model 151 Stepping 2, GenuineIntel"
+}
